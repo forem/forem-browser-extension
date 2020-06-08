@@ -2,6 +2,9 @@ const backgroundColor = "#d7d9e0";
 const currentOrigin = window.location.origin;
 chrome.storage.sync.get(['subscribedForems'], function(result) {
   var myForems = result.subscribedForems;
+  if (!myForems) {
+    chrome.storage.sync.set({subscribedForems: []}); // Create empty array if not initialized.
+  }
   if (myOrigins(myForems).includes(currentOrigin) || validOrigins().includes(currentOrigin) || currentOrigin === 'https://www.forem.com') {
       loadForemHTML(result.subscribedForems);
     document.addEventListener('add', handleAdd, false);

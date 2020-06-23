@@ -84,16 +84,10 @@ function loadForemHTML(forems) {
   var constructedSidecarIframe = document.getElementById("forem-sidecar") || document.createElement ("IFRAME");
   constructedSidecarIframe.id="forem-sidecar";
   constructedSidecarIframe.srcdoc = foremHTML;
-  constructedSidecarIframe.style.top = "0"
-  constructedSidecarIframe.style.left = "0"
-  constructedSidecarIframe.style.bottom = "0"
-  constructedSidecarIframe.style.height = "100vh"
-  constructedSidecarIframe.style.width = "60px"
-  constructedSidecarIframe.style.position = "fixed"
-  constructedSidecarIframe.style.border = "0"
-  constructedSidecarIframe.style.border = "0"
-  constructedSidecarIframe.style.zIndex = "100000"
-  document.documentElement.appendChild (constructedSidecarIframe);  
+  var newStyles = document.createElement ("STYLE");
+  newStyles.innerHTML = 'body, #top-bar {padding-left:60px;} #forem-sidecar {top:0;left:0;bottom:0;height:100vh;width:60px;border:0;z-index:100000;position:fixed}';
+  document.documentElement.appendChild (newStyles);
+  document.documentElement.appendChild (constructedSidecarIframe);
 
 }
 

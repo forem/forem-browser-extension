@@ -1,6 +1,8 @@
 # Forem Browser Extension 🌱
 
-Everyone is free to download and use this Chrome extension. It will eventually be listed in the Chrome Store, but in the meantime we are loading from this source. You will be alerted when there is a new beta version available for download.
+Everyone is free to download and use this Chrome extension.
+
+This extension will eventually be listed in the Chrome Store, but in the meantime we are loading from this source. You will be alerted when there is a new beta version available for download.
 
 ## [👉 How to install locally in Chrome](https://dev.to/ben/how-to-install-chrome-extensions-manually-from-github-1612)
 

@@ -6,6 +6,8 @@ This extension will eventually be listed in the Chrome Store, but in the meantim
 
 ## [👉 How to install Chrome extensions from GitHub](https://dev.to/ben/how-to-install-chrome-extensions-manually-from-github-1612)
 
+Installation is just a few clicks. Follow the guide to get started.
+
 ## About this extension
 
 This is a fairly functional work-in-progress. Let's try to keep it clean and functionally minimal as we evolve it.

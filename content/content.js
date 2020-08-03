@@ -49,7 +49,7 @@ function loadForemHTML(forems) {
     .forem-expanded {left: 0 !important;}
   `;
   
-  var homeLink = `<a href="https://www.forem.com" rel="noreferrer"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--ppabDsgB--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://www.forem.com/seedling.png" /></a>`
+  var homeLink = `<a href="https://www.forem.com/discover/" rel="noreferrer"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--ppabDsgB--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://www.forem.com/seedling.png" /></a>`
   var navHTML = ''
   var subscribedOrigins = []
   forems.forEach(function(forem, i){

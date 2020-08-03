@@ -21,7 +21,7 @@ chrome.storage.sync.get(['subscribedForems', 'allforems'], function(result) {
         response.json().then(json => {
           chrome.storage.sync.set({allforems: json.forems}); // Create empty array if not initialized.
           var versionSubstring = json.meta.latestExtensionVersion.substring(0,3);
-          if (versionSubstring != "0.0") {
+          if (versionSubstring != "0.1") {
             if (window.confirm('A new beta version of the Forem Browser Extension has been shipped. Download it from GitHub...')) 
             {
             window.location.href='https://github.com/forem/forem-browser-extension';

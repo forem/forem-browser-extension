@@ -1,16 +1,35 @@
 const backgroundColor = "#d7d9e0";
 const currentOrigin = window.location.origin;
-chrome.storage.sync.get(['subscribedForems'], function(result) {
+chrome.storage.sync.get(['subscribedForems', 'allforems'], function(result) {
   var myForems = result.subscribedForems;
+  var allForems = result.allforems
   if (!myForems) {
     chrome.storage.sync.set({subscribedForems: []}); // Create empty array if not initialized.
   }
-  if (myOrigins(myForems).includes(currentOrigin) || validOrigins().includes(currentOrigin) || currentOrigin === 'https://www.forem.com') {
+  if (!allForems) {
+    chrome.storage.sync.set({allforems: []}); // Create empty array if not initialized.
+  }
+  if (myOrigins(myForems).includes(currentOrigin) || validOrigins(allForems).includes(currentOrigin) || currentOrigin === 'https://www.forem.com') {
       loadForemHTML(result.subscribedForems);
     document.addEventListener('add', handleAdd, false);
     document.addEventListener('remove', handleRemove, false);
     document.addEventListener('reorder', handleReorder, false);
 
+    // Check for new extension version
+    setTimeout(function(){
+      window.fetch('https://www.forem.com/valid_forems.json').then(response => {
+        response.json().then(json => {
+          chrome.storage.sync.set({allforems: json.forems}); // Create empty array if not initialized.
+          var versionSubstring = json.meta.latestExtensionVersion.substring(0,3);
+          if (versionSubstring != "0.0") {
+            if (window.confirm('A new beta version of the Forem Browser Extension has been shipped. Download it from GitHub...')) 
+            {
+            window.location.href='https://github.com/forem/forem-browser-extension';
+            };
+          }
+        })
+      })  
+    }, 1500)
   }
 });
 
@@ -29,7 +48,6 @@ function loadForemHTML(forems) {
     .drag-target img {opacity:0.2;}
     .forem-expanded {left: 0 !important;}
   `;
-
   
   var homeLink = `<a href="https://www.forem.com" rel="noreferrer"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--ppabDsgB--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://www.forem.com/seedling.png" /></a>`
   var navHTML = ''
@@ -92,9 +110,9 @@ function loadForemHTML(forems) {
 }
 
 function handleAdd(event) {
-  chrome.storage.sync.get(['subscribedForems'], function(result) {
+  chrome.storage.sync.get(['subscribedForems', 'allforems'], function(result) {
     var forems = result.subscribedForems;
-    var newForem = allForems().filter(function(f) { 
+    var newForem = result.allforems.filter(function(f) { 
       return f.homePageUrl === currentOrigin;
      })
     forems.push(newForem[0])
@@ -134,40 +152,12 @@ function handleReorder(event) {
 }
 
 
-function validOrigins() {
-  return allForems().map(function(f){ return f.homePageUrl })
+function validOrigins(forems) {
+  return forems.map(function(f){ return f.homePageUrl })
 }
 
 function myOrigins(myForems) {
   return myForems.map(function(f){ return f.homePageUrl })
-}
-
-
-function allForems() {
-  // Hardcoded for now. Replace this with something like a forem.com/valid_forems.json call
-  // Basically we want to check against valid forems and grow over time.
-  return [
-    {
-      name: "DEV",
-      logo: "https://res.cloudinary.com/practicaldev/image/fetch/c_scale,fl_progressive,q_auto,w_180/f_auto/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/devlogo-pwa-512.png",
-      homePageUrl: "https://dev.to"
-    },
-    {
-      name: "ThisMMALife",
-      logo: "https://res.cloudinary.com/hkyugldxm/image/fetch/c_scale,fl_progressive,q_auto,w_180/f_auto/https://thismmalife-images.s3-us-west-2.amazonaws.com/social/primary-sticker-image-url.png",
-      homePageUrl: "https://www.thismmalife.com"
-    },
-    {
-      name: "Ben Halpern",
-      logo: "https://res.cloudinary.com/hatyrxu64/image/fetch/c_scale,fl_progressive,q_auto,w_180/f_auto/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/1/f451a206-11c8-4e3d-8936-143d0a7e65bb.png",
-      homePageUrl: "https://community.benhalpern.com"
-    },
-    {
-      name: "Let's Build",
-      logo: "https://res.cloudinary.com/dr4ma05jp/image/fetch/c_scale,fl_progressive,q_auto,w_180/f_auto/https://res.cloudinary.com/dr4ma05jp/image/upload/v1589859417/500x500_gvlpml.png",
-      homePageUrl: "https://letsbuild.gg"
-    }
-  ]
 }
 
 function arrayMove(arr, old_index, new_index) {

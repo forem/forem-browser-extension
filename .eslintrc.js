@@ -1,3 +1,4 @@
+/* globals module */
 module.exports = {
   extends: ['eslint:recommended', 'prettier'],
   parserOptions: {
@@ -6,8 +7,10 @@ module.exports = {
   env: {
     browser: true,
   },
-  plugins: ['import', 'react'],
   rules: {
     'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+  },
+  globals: {
+    chrome: false,
   },
 };

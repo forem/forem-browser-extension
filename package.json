@@ -1,0 +1,24 @@
+{
+  "name": "forem-browser-extension",
+  "version": "1.0.0",
+  "description": "This is a fairly functional work-in-progress. Let's try to keep it clean and functionally minimal as we evolve it.",
+  "main": "content.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/forem/forem-browser-extension.git"
+  },
+  "keywords": [
+    "chrome-extension",
+    "firefox-addon",
+    "browser-extension"
+  ],
+  "author": "The Forem Team",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/forem/forem-browser-extension/issues"
+  },
+  "homepage": "https://github.com/forem/forem-browser-extension#readme"
+}

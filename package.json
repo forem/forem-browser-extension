@@ -20,5 +20,41 @@
   "bugs": {
     "url": "https://github.com/forem/forem-browser-extension/issues"
   },
-  "homepage": "https://github.com/forem/forem-browser-extension#readme"
+  "homepage": "https://github.com/forem/forem-browser-extension#readme",
+  "devDependencies": {
+    "eslint": "^7.6.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.json": [
+      "prettier --write"
+    ],
+    "*.{scss,css}": [
+      "prettier --write"
+    ],
+    "*.md": [
+      "prettier --write --prose-wrap always"
+    ],
+    "*.svg": [
+      "svgo --disable=removeViewBox --pretty"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "printWidth": 80
+  }
 }

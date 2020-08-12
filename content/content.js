@@ -23,28 +23,24 @@ chrome.storage.sync.get(['subscribedForems', 'allforems'], function (result) {
 
   // Check for new extension version
   if (allForems.length === 0 || validOrigins(allForems).includes(currentOrigin)) {
-    setTimeout(function () {
-      window
-        .fetch('https://www.forem.com/valid_forems.json')
-        .then((response) => {
-          response.json().then((json) => {
-            chrome.storage.sync.set({ allforems: json.forems }); // Create empty array if not initialized.
-            const versionSubstring = json.meta.latestExtensionVersion.substring(
-              0,
-              3,
-            );
-            if (versionSubstring != '0.2') {
-              if (
-                window.confirm(
-                  '👋👋👋\n\nA new beta version of the Forem Browser Extension has been shipped.\n\nDownload the latest from GitHub...',
-                )
-              ) {
-                window.location.href =
-                  'https://github.com/forem/forem-browser-extension';
-              }
-            }
-          });
-        });
+    setTimeout(async () => {
+      const response = await window.fetch('https://www.forem.com/valid_forems.json');
+      const json = await response.json();
+      chrome.storage.sync.set({ allforems: json.forems }); // Create empty array if not initialized.
+      const versionSubstring = json.meta.latestExtensionVersion.substring(
+        0,
+        3,
+      );
+      if (versionSubstring != '0.2') {
+        if (
+          window.confirm(
+            '👋👋👋\n\nA new beta version of the Forem Browser Extension has been shipped.\n\nDownload the latest from GitHub...',
+          )
+        ) {
+          window.location.href =
+            'https://github.com/forem/forem-browser-extension';
+        }
+      }
     }, 800);    
   }
 });

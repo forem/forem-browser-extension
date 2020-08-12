@@ -11,8 +11,8 @@ chrome.storage.sync.get(['subscribedForems', 'allforems'], function (result) {
     chrome.storage.sync.set({ allforems: [] }); // Create empty array if not initialized.
   }
   if (
-    myOrigins(myForems).includes(currentOrigin) ||
-    validOrigins(allForems).includes(currentOrigin) ||
+    (myForems && myOrigins(myForems).includes(currentOrigin)) ||
+    (allForems && validOrigins(allForems).includes(currentOrigin)) ||
     currentOrigin === 'https://www.forem.com'
   ) {
     loadForemHTML(result.subscribedForems);
@@ -22,10 +22,11 @@ chrome.storage.sync.get(['subscribedForems', 'allforems'], function (result) {
   }
 
   // Check for new extension version
-  if (allForems.length === 0 || validOrigins(allForems).includes(currentOrigin)) {
+  if (!allForems || allForems.length === 0 || validOrigins(allForems).includes(currentOrigin)) {
+    const init = !allForems || allForems.length === 0;
     setTimeout(async () => {
       const response = await window.fetch('https://www.forem.com/valid_forems.json');
-      const json = await response.json();
+      const json = await response.json()
       chrome.storage.sync.set({ allforems: json.forems }); // Create empty array if not initialized.
       const versionSubstring = json.meta.latestExtensionVersion.substring(
         0,
@@ -40,6 +41,13 @@ chrome.storage.sync.get(['subscribedForems', 'allforems'], function (result) {
           window.location.href =
             'https://github.com/forem/forem-browser-extension';
         }
+      }
+
+      if (init && validOrigins(json.forems).includes(currentOrigin)) {
+        loadForemHTML([]);
+        document.addEventListener('add', handleAdd, false);
+        document.addEventListener('remove', handleRemove, false);
+        document.addEventListener('reorder', handleReorder, false);
       }
     }, 800);    
   }

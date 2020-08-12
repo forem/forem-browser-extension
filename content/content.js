@@ -19,8 +19,10 @@ chrome.storage.sync.get(['subscribedForems', 'allforems'], function (result) {
     document.addEventListener('add', handleAdd, false);
     document.addEventListener('remove', handleRemove, false);
     document.addEventListener('reorder', handleReorder, false);
+  }
 
-    // Check for new extension version
+  // Check for new extension version
+  if (allForems.length === 0 || validOrigins(allForems).includes(currentOrigin)) {
     setTimeout(function () {
       window
         .fetch('https://www.forem.com/valid_forems.json')
@@ -31,10 +33,10 @@ chrome.storage.sync.get(['subscribedForems', 'allforems'], function (result) {
               0,
               3,
             );
-            if (versionSubstring != '0.1') {
+            if (versionSubstring != '0.2') {
               if (
                 window.confirm(
-                  'A new beta version of the Forem Browser Extension has been shipped. Download it from GitHub...',
+                  '👋👋👋\n\nA new beta version of the Forem Browser Extension has been shipped.\n\nDownload the latest from GitHub...',
                 )
               ) {
                 window.location.href =
@@ -43,7 +45,7 @@ chrome.storage.sync.get(['subscribedForems', 'allforems'], function (result) {
             }
           });
         });
-    }, 1500);
+    }, 800);    
   }
 });
 
@@ -135,6 +137,16 @@ function loadForemHTML(forems) {
     'body, #top-bar {padding-left:60px;} #forem-sidecar {top:0;left:0;bottom:0;height:100vh;width:60px;border:0;z-index:100000;position:fixed}';
   document.documentElement.appendChild(newStyles);
   document.documentElement.appendChild(constructedSidecarIframe);
+
+  // Adding getting started indicator if no forems are installed.
+  if (forems.length === 0 && !document.getElementById('forem-gettingstarted')) {
+    const gettingStartedDiv = document.createElement('DIV');
+    gettingStartedDiv.id = 'forem-gettingstarted';
+    gettingStartedDiv.innerHTML = "👈 Use the + button to save a forem in your switcher"
+    newStyles.innerHTML = newStyles.innerHTML + "#forem-gettingstarted { position: fixed; left: 70px; bottom: 10px; background: black; color: white;padding: 10px 15px; border-radius: 8px;}";
+    document.documentElement.appendChild(gettingStartedDiv);
+
+  }
 }
 
 function handleAdd(_event) {
@@ -146,6 +158,10 @@ function handleAdd(_event) {
     forems.push(newForem[0]);
     chrome.storage.sync.set({ subscribedForems: forems }, function () {
       loadForemHTML(result.subscribedForems);
+      const indicator = document.getElementById('forem-gettingstarted');
+      if (indicator) {
+        indicator.style.display = "none";
+      }
     });
   });
 }

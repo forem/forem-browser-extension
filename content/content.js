@@ -22,7 +22,10 @@ chrome.storage.sync.get(['subscribedForems', 'allforems'], function (result) {
   }
 
   // Check for new extension version
-  if (allForems.length === 0 || validOrigins(allForems).includes(currentOrigin)) {
+  if (
+    allForems.length === 0 ||
+    validOrigins(allForems).includes(currentOrigin)
+  ) {
     setTimeout(function () {
       window
         .fetch('https://www.forem.com/valid_forems.json')
@@ -45,7 +48,7 @@ chrome.storage.sync.get(['subscribedForems', 'allforems'], function (result) {
             }
           });
         });
-    }, 800);    
+    }, 800);
   }
 });
 
@@ -142,10 +145,12 @@ function loadForemHTML(forems) {
   if (forems.length === 0 && !document.getElementById('forem-gettingstarted')) {
     const gettingStartedDiv = document.createElement('DIV');
     gettingStartedDiv.id = 'forem-gettingstarted';
-    gettingStartedDiv.innerHTML = "👈 Use the + button to save a forem in your switcher"
-    newStyles.innerHTML = newStyles.innerHTML + "#forem-gettingstarted { position: fixed; left: 70px; bottom: 10px; background: black; color: white;padding: 10px 15px; border-radius: 8px;}";
+    gettingStartedDiv.innerHTML =
+      '👈 Use the + button to save a forem in your switcher';
+    newStyles.innerHTML =
+      newStyles.innerHTML +
+      '#forem-gettingstarted { position: fixed; left: 70px; bottom: 10px; background: black; color: white;padding: 10px 15px; border-radius: 8px; z-index:999}';
     document.documentElement.appendChild(gettingStartedDiv);
-
   }
 }
 
@@ -160,7 +165,7 @@ function handleAdd(_event) {
       loadForemHTML(result.subscribedForems);
       const indicator = document.getElementById('forem-gettingstarted');
       if (indicator) {
-        indicator.style.display = "none";
+        indicator.style.display = 'none';
       }
     });
   });

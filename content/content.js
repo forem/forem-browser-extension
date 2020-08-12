@@ -27,6 +27,7 @@ chrome.storage.sync.get(['subscribedForems', 'allforems'], function (result) {
 
   // Check for new extension version
   if (!allForems || allForems.length === 0 || validOrigins(allForems).includes(currentOrigin)) {
+    const init = !allForems || allForems.length === 0;
     setTimeout(function () {
       window
         .fetch('https://www.forem.com/valid_forems.json')
@@ -46,6 +47,13 @@ chrome.storage.sync.get(['subscribedForems', 'allforems'], function (result) {
                 window.location.href =
                   'https://github.com/forem/forem-browser-extension';
               }
+            }
+
+            if (init && validOrigins(json.forems).includes(currentOrigin)) {
+              loadForemHTML([]);
+              document.addEventListener('add', handleAdd, false);
+              document.addEventListener('remove', handleRemove, false);
+              document.addEventListener('reorder', handleReorder, false);
             }
           });
         });

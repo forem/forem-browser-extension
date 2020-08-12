@@ -7,7 +7,7 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "run_at": "document_start",
+      "run_at": "document_idle",
       "js": ["content/content.js"]
     }
   ]

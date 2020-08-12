@@ -26,7 +26,11 @@ chrome.storage.sync.get(['subscribedForems', 'allforems'], function (result) {
   }
 
   // Check for new extension version
-  if (!allForems || allForems.length === 0 || validOrigins(allForems).includes(currentOrigin)) {
+  if (
+    !allForems ||
+    allForems.length === 0 ||
+    validOrigins(allForems).includes(currentOrigin)
+  ) {
     const init = !allForems || allForems.length === 0;
     setTimeout(function () {
       window
@@ -97,7 +101,10 @@ function loadForemHTML(forems) {
   let actionButton = '';
   let script = '';
 
-  if (!subscribedOrigins.includes(currentOrigin) && currentOrigin !== 'https://www.forem.com') {
+  if (
+    !subscribedOrigins.includes(currentOrigin) &&
+    currentOrigin !== 'https://www.forem.com'
+  ) {
     actionButton =
       '<button id="forem-action-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"><path fill="none" d="M0 0h24v24H0z"/><path d="M11 11V7h2v4h4v2h-4v4h-2v-4H7v-2h4zm1 11C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"/></svg></button>';
     script = `<script>
@@ -135,9 +142,9 @@ function loadForemHTML(forems) {
                       }
                     </script>`;
 
-  const foremHTML = `<style>${styleCss}</style><div id="forem-sidecar" class="forem-expanded"><base target="_parent">${
+  const foremHTML = `<style>${styleCss}</style><main id="forem-sidecar" class="forem-expanded"><base target="_parent">${
     homeLink + navHTML + actionButton + script + dragScript
-  }</div>`;
+  }</main>`;
 
   const constructedSidecarIframe =
     document.getElementById('forem-sidecar') ||
@@ -151,7 +158,11 @@ function loadForemHTML(forems) {
   document.documentElement.appendChild(constructedSidecarIframe);
 
   // Adding getting started indicator if no forems are installed.
-  if (currentOrigin !== 'https://www.forem.com' && forems.length === 0 && !document.getElementById('forem-gettingstarted')) {
+  if (
+    currentOrigin !== 'https://www.forem.com' &&
+    forems.length === 0 &&
+    !document.getElementById('forem-gettingstarted')
+  ) {
     const gettingStartedDiv = document.createElement('DIV');
     gettingStartedDiv.id = 'forem-gettingstarted';
     gettingStartedDiv.innerHTML =

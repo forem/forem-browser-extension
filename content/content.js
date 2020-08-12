@@ -89,13 +89,15 @@ function loadForemHTML(forems) {
     subscribedOrigins.push(forem.homePageUrl);
     navHTML =
       navHTML +
-      `<div class="forem-link-wrapper" data-index="${i}"><a id="forem-link-${i}" href="${
+      `<div class="forem-link-wrapper" data-index="${i}"><a id="forem-link-${i}" title="${
+        forem.name
+      } web site" href="${
         forem.homePageUrl
       }" draggable="true" class="forem-single-link" data-index="${i}"><img data-index="${i}" src="${
         forem.logo
       }" style="${
         currentOrigin === forem.homePageUrl ? 'border: 4px solid white' : ''
-      }" /></a></div>`;
+      }" alt="${forem.name} logo" /></a></div>`;
   });
 
   let actionButton = '';

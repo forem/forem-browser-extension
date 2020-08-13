@@ -8,7 +8,7 @@
     {
       "matches": ["<all_urls>"],
       "run_at": "document_idle",
-      "js": ["content/content.js"]
+      "js": ["content.js"]
     }
   ]
 }

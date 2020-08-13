@@ -4,6 +4,11 @@
   "description": "This is a fairly functional work-in-progress. Let's try to keep it clean and functionally minimal as we evolve it.",
   "main": "content.js",
   "scripts": {
+    "clean": "rimraf dist",
+    "predev": "npm run clean",
+    "dev": "cross-env NODE_ENV=development parcel watch src/content.js src/hotReload.js ",
+    "prebuild": "npm run clean",
+    "build": "cross-env NODE_ENV=production parcel build src/content.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,12 +27,17 @@
   },
   "homepage": "https://github.com/forem/forem-browser-extension#readme",
   "devDependencies": {
+    "cross-env": "^7.0.2",
+    "crx-hotreload": "^1.0.4",
     "eslint": "^7.6.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
-    "prettier": "^2.0.5"
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-static-files-copy": "^2.5.0",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2"
   },
   "husky": {
     "hooks": {
@@ -56,5 +66,17 @@
     "singleQuote": true,
     "trailingComma": "all",
     "printWidth": 80
+  },
+  "staticFiles": {
+    "staticPath": [
+      {
+        "staticPath": "static/development",
+        "env": "development"
+      },
+      {
+        "staticPath": "static/production",
+        "env": "production"
+      }
+    ]
   }
 }

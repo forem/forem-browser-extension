@@ -33,7 +33,8 @@ To install the extension for development, do the following:
 
 - Run `yarn` to install project dependencies.
 - Run `yarn dev` to build the extension (it will be running in watch mode)
-- Load the `dist/` folder as an unpacked browser extension. See the
+- Load the `dist/` folder as an unpacked browser extension. Not sure how to load
+  an unpacked Chrome extension? See the
   [Getting Started](https://developer.chrome.com/extensions/getstarted)
   documentation for Chrome extensions.
 
@@ -43,6 +44,7 @@ As you make changes to the code base, changes will be reloaded in the browser.
 
 - Run `yarn` to install project dependencies.
 - Run `yarn build` to build the extension
-- Load the `dist/` folder as an unpacked browser extension. See the
+- Load the `dist/` folder as an unpacked browser extension. Not sure how to load
+  an unpacked Chrome extension? See the
   [Getting Started](https://developer.chrome.com/extensions/getstarted)
   documentation for Chrome extensions.

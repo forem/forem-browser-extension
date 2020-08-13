@@ -6,10 +6,6 @@ This extension will eventually be listed in the Chrome Store, but in the
 meantime we are loading from this source. You will be alerted when there is a
 new beta version available for download.
 
-## [👉 How to install Chrome extensions from GitHub](https://dev.to/ben/how-to-install-chrome-extensions-manually-from-github-1612)
-
-Installation is just a few clicks. Follow the guide to get started.
-
 ## About this extension
 
 This is a fairly functional work-in-progress. Let's try to keep it clean and
@@ -30,3 +26,23 @@ functionally minimal as we evolve it.
   were to be relevant)
 - The application fetches compatible/good standing forems from
   `forem.com/valid_forems.json`
+
+## Working on the extension
+
+To install the extension for development, do the following:
+
+- Run `yarn` to install project dependencies.
+- Run `yarn dev` to build the extension (it will be running in watch mode)
+- Load the `dist/` folder as an unpacked browser extension. See the
+  [Getting Started](https://developer.chrome.com/extensions/getstarted)
+  documentation for Chrome extensions.
+
+As you make changes to the code base, changes will be reloaded in the browser.
+
+## Building the unpacked extension
+
+- Run `yarn` to install project dependencies.
+- Run `yarn build` to build the extension
+- Load the `dist/` folder as an unpacked browser extension. See the
+  [Getting Started](https://developer.chrome.com/extensions/getstarted)
+  documentation for Chrome extensions.

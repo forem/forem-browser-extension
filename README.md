@@ -38,7 +38,12 @@ To install the extension for development, do the following:
   [Getting Started](https://developer.chrome.com/extensions/getstarted)
   documentation for Chrome extensions.
 
-As you make changes to the code base, changes will be reloaded in the browser.
+As you make changes to the code, changes will be reloaded in the browser.
+
+Note: If you do not see changes you've made being reflected in the extension
+during development, you may need to manually reload the browser extension once.
+This typically occurs if you stop Parcel and restart it. After that, hot
+reloading resumes.
 
 ## Building the unpacked extension
 

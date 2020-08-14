@@ -31,6 +31,7 @@ functionally minimal as we evolve it.
 
 To install the extension for development, do the following:
 
+- Ensure that [Yarn is installed](https://classic.yarnpkg.com/en/docs/install).
 - Run `yarn` to install project dependencies.
 - Run `yarn dev` to build the extension (it will be running in watch mode)
 - Load the `dist/` folder as an unpacked browser extension. Not sure how to load
@@ -47,6 +48,7 @@ reloading resumes.
 
 ## Building the unpacked extension
 
+- Ensure that [Yarn is installed](https://classic.yarnpkg.com/en/docs/install).
 - Run `yarn` to install project dependencies.
 - Run `yarn build` to build the extension
 - Load the `dist/` folder as an unpacked browser extension. Not sure how to load

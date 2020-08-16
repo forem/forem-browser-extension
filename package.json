@@ -78,5 +78,8 @@
         "env": "production"
       }
     ]
-  }
+  },
+  "browserslist": [
+    "> 0.5%, last 5 versions"
+  ]
 }

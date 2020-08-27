@@ -33,13 +33,12 @@ chrome.storage.sync.get(['subscribedForems', 'allforems'], function (result) {
   ) {
     const init = !allForems || allForems.length === 0;
     setTimeout(async () => {
-      const response = await window.fetch('https://www.forem.com/valid_forems.json');
-      const json = await response.json()
-      chrome.storage.sync.set({ allforems: json.forems }); // Create empty array if not initialized.
-      const versionSubstring = json.meta.latestExtensionVersion.substring(
-        0,
-        3,
+      const response = await window.fetch(
+        'https://www.forem.com/valid_forems.json',
       );
+      const json = await response.json();
+      chrome.storage.sync.set({ allforems: json.forems }); // Create empty array if not initialized.
+      const versionSubstring = json.meta.latestExtensionVersion.substring(0, 3);
       if (versionSubstring != '0.2') {
         if (
           window.confirm(
@@ -57,7 +56,7 @@ chrome.storage.sync.get(['subscribedForems', 'allforems'], function (result) {
         document.addEventListener('remove', handleRemove, false);
         document.addEventListener('reorder', handleReorder, false);
       }
-    }, 800);    
+    }, 800);
   }
 });
 
@@ -148,6 +147,7 @@ function loadForemHTML(forems) {
     document.getElementById('forem-sidecar') ||
     document.createElement('IFRAME');
   constructedSidecarIframe.id = 'forem-sidecar';
+  constructedSidecarIframe.title = 'My Forems';
   constructedSidecarIframe.srcdoc = foremHTML;
   const newStyles = document.createElement('STYLE');
   newStyles.innerHTML =

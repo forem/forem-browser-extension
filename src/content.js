@@ -147,6 +147,7 @@ function loadForemHTML(forems) {
     document.getElementById('forem-sidecar') ||
     document.createElement('IFRAME');
   constructedSidecarIframe.id = 'forem-sidecar';
+  constructedSidecarIframe.title = 'My Forems';
   constructedSidecarIframe.srcdoc = foremHTML;
   const newStyles = document.createElement('STYLE');
   newStyles.innerHTML =

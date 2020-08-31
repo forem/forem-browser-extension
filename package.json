@@ -5,9 +5,9 @@
   "main": "content.js",
   "scripts": {
     "clean": "rimraf dist",
-    "predev": "npm run clean",
+    "predev": "yarn run clean",
     "dev": "cross-env NODE_ENV=development parcel watch src/content.js src/hotReload.js ",
-    "prebuild": "npm run clean",
+    "prebuild": "yarn run clean",
     "build": "cross-env NODE_ENV=production parcel build src/content.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

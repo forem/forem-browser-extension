@@ -151,7 +151,7 @@ function loadForemHTML(forems) {
   constructedSidecarIframe.srcdoc = foremHTML;
   const newStyles = document.createElement('STYLE');
   newStyles.innerHTML =
-    'body, #top-bar {padding-left:60px;} #forem-sidecar {top:0;left:0;bottom:0;height:100vh;width:60px;border:0;z-index:100000;position:fixed}';
+    'body, .crayons-header {left: 58px !important} @media (max-width: 1380px){#page-content {padding-left:64px !important}} #forem-sidecar {top:0;left:0;bottom:0;height:100vh;width:60px;border:0;z-index:100000;position:fixed}';
   document.documentElement.appendChild(newStyles);
   document.documentElement.appendChild(constructedSidecarIframe);
 

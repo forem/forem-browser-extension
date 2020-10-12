@@ -1,64 +1,79 @@
-const backgroundColor = '#d7d9e0';
-const currentOrigin = window.location.origin;
-
 // Uncomment this to clear chrome storage and return to base state.
 // chrome.storage.sync.clear();
 // Remember comment it again when you're done :)
 
-chrome.storage.sync.get(['subscribedForems', 'allforems'], function (result) {
-  const myForems = result.subscribedForems;
-  const allForems = result.allforems;
-  if (!myForems) {
-    chrome.storage.sync.set({ subscribedForems: [] }); // Create empty array if not initialized.
-  }
-  if (!allForems) {
-    chrome.storage.sync.set({ allforems: [] }); // Create empty array if not initialized.
-  }
-  if (
-    (myForems && myOrigins(myForems).includes(currentOrigin)) ||
-    (allForems && validOrigins(allForems).includes(currentOrigin)) ||
-    currentOrigin === 'https://www.forem.com'
-  ) {
-    loadForemHTML(result.subscribedForems);
-    document.addEventListener('add', handleAdd, false);
-    document.addEventListener('remove', handleRemove, false);
-    document.addEventListener('reorder', handleReorder, false);
-  }
+const backgroundColor = '#d7d9e0';
+const currentOrigin = window.location.origin;
+initializeForemLogic();
 
-  // Check for new extension version
-  if (
-    !allForems ||
-    allForems.length === 0 ||
-    validOrigins(allForems).includes(currentOrigin)
-  ) {
-    const init = !allForems || allForems.length === 0;
-    setTimeout(async () => {
-      const response = await window.fetch(
-        'https://www.forem.com/valid_forems.json',
-      );
-      const json = await response.json();
-      chrome.storage.sync.set({ allforems: json.forems }); // Create empty array if not initialized.
-      const versionSubstring = json.meta.latestExtensionVersion.substring(0, 3);
-      if (versionSubstring != '0.2') {
-        if (
-          window.confirm(
-            '👋👋👋\n\nA new beta version of the Forem Browser Extension has been shipped.\n\nDownload the latest from GitHub...',
-          )
-        ) {
-          window.location.href =
-            'https://github.com/forem/forem-browser-extension';
+function initializeForemLogic() {
+  chrome.storage.sync.get(['subscribedForems', 'allforems', 'customforems'], function (result) {
+    const myForems = result.subscribedForems;
+    const initialForems = result.allforems;
+    const customForems = result.customforems;
+    if (!myForems) {
+      chrome.storage.sync.set({ subscribedForems: [] }); // Create empty array if not initialized.
+    }
+    if (!initialForems) {
+      chrome.storage.sync.set({ allforems: [] }); // Create empty array if not initialized.
+    }
+    if (!customForems) {
+      chrome.storage.sync.set({ customforems: [] }); // Create empty array if not initialized.
+    }
+    const allForems = initialForems.concat(customForems)
+    if (
+      (myForems && myOrigins(myForems).includes(currentOrigin)) ||
+      (allForems && validOrigins(allForems).includes(currentOrigin)) ||
+      currentOrigin === 'https://www.forem.com'
+    ) {
+      loadForemHTML(result.subscribedForems);
+      document.addEventListener('add', handleAdd, false);
+      document.addEventListener('remove', handleRemove, false);
+      document.addEventListener('reorder', handleReorder, false);
+    }
+  
+    // Check for new extension version
+    if (
+      !allForems ||
+      allForems.length === 0 ||
+      validOrigins(allForems).includes(currentOrigin)
+    ) {
+      const init = !allForems || allForems.length === 0;
+      setTimeout(async () => {
+        const response = await window.fetch(
+          'https://www.forem.com/valid_forems.json',
+        );
+        const json = await response.json();
+        chrome.storage.sync.set({ allforems: json.forems }); // Create empty array if not initialized.
+        const versionSubstring = json.meta.latestExtensionVersion.substring(0, 3);
+        if (versionSubstring != '0.2') {
+          if (
+            window.confirm(
+              '👋👋👋\n\nA new beta version of the Forem Browser Extension has been shipped.\n\nDownload the latest from GitHub...',
+            )
+          ) {
+            window.location.href =
+              'https://github.com/forem/forem-browser-extension';
+          }
         }
-      }
+  
+        if (init && validOrigins(json.forems).includes(currentOrigin)) {
+          loadForemHTML([]);
+          document.addEventListener('add', handleAdd, false);
+          document.addEventListener('remove', handleRemove, false);
+          document.addEventListener('reorder', handleReorder, false);
+        }
+      }, 300);
+    }
+  });  
+}
 
-      if (init && validOrigins(json.forems).includes(currentOrigin)) {
-        loadForemHTML([]);
-        document.addEventListener('add', handleAdd, false);
-        document.addEventListener('remove', handleRemove, false);
-        document.addEventListener('reorder', handleReorder, false);
-      }
-    }, 800);
-  }
-});
+// if (!validOrigins(allForems).includes(currentOrigin)) { // If not known as listed compatible forem
+setTimeout(function(){
+  addCompatibleForem();
+}, 450)
+// }
+
 
 function loadForemHTML(forems) {
   const foremSidecarStyles = `position:fixed;left:0;bottom:0;top:0px;background:${backgroundColor};z-index:1000;width:100%`;
@@ -173,9 +188,10 @@ function loadForemHTML(forems) {
 }
 
 function handleAdd(_event) {
-  chrome.storage.sync.get(['subscribedForems', 'allforems'], function (result) {
+  chrome.storage.sync.get(['subscribedForems', 'allforems', 'customforems'], function (result) {
     const forems = result.subscribedForems;
-    const newForem = result.allforems.filter(function (f) {
+    const customForems = result.customforems;
+    const newForem = result.allforems.concat(customForems).filter(function (f) {
       return f.homePageUrl === currentOrigin;
     });
     forems.push(newForem[0]);
@@ -217,6 +233,24 @@ function handleReorder(event) {
   });
 }
 
+function addCompatibleForem() {
+  const name = document.querySelector("meta[property='forem:name']");
+  const logo = document.querySelector("meta[property='forem:logo']");
+  const domain = document.querySelector("meta[property='forem:domain']");
+  chrome.storage.sync.get('customforems', function (result) {
+    const allForems = result['customforems'] || [];
+    if (domain && allForems && !arrayContainsUrl("https://"+domain.content, allForems)) {
+      allForems.push({
+        "homePageUrl": "https://"+domain.content,
+        "logo": logo.content,
+        "name": name.content
+      })
+      chrome.storage.sync.set({ customforems: allForems })
+      initializeForemLogic();
+    }
+  });
+}
+
 function validOrigins(forems) {
   return forems.map(function (f) {
     return f.homePageUrl;
@@ -238,4 +272,12 @@ function arrayMove(arr, old_index, new_index) {
   }
   arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
   return arr;
+}
+
+function arrayContainsUrl(url, myArray){
+  for (var i=0; i < myArray.length; i++) {
+    if (myArray[i]['homePageUrl'] === url) {
+        return myArray[i];
+    }
+  }
 }

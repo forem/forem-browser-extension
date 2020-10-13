@@ -166,7 +166,11 @@ function loadForemHTML(forems) {
   constructedSidecarIframe.srcdoc = foremHTML;
   const newStyles = document.createElement('STYLE');
   newStyles.innerHTML =
-    '@media (max-width: 1380px){body {padding-left:60px !important} .crayons-header {left: 58px !important}} #forem-sidecar {top:0;left:0;bottom:0;height:100vh;width:60px;border:0;z-index:100000;position:fixed}';
+    `#chat {padding-left:60px !important}
+     .crayons-snackbar {left: 70px !important}
+     @media (max-width: 1380px){body {padding-left:60px !important}
+     .crayons-header {left: 58px !important}}
+     #forem-sidecar {top:0;left:0;bottom:0;height:100vh;width:60px;border:0;z-index:100000;position:fixed}`;
   document.documentElement.appendChild(newStyles);
   document.documentElement.appendChild(constructedSidecarIframe);
 

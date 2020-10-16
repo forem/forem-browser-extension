@@ -168,6 +168,7 @@ function loadForemHTML(forems) {
   newStyles.innerHTML =
     `#chat {padding-left:60px !important}
      .crayons-snackbar {left: 70px !important}
+     .fullscreen-code { left: 60px; width: calc(100% - 60px);}
      @media (max-width: 1380px){body {padding-left:60px !important}
      .crayons-header {left: 58px !important}}
      #forem-sidecar {top:0;left:0;bottom:0;height:100vh;width:60px;border:0;z-index:100000;position:fixed}`;

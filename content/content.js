@@ -90,7 +90,7 @@ function loadForemHTML(forems) {
     .forem-expanded {left: 0 !important;}
   `;
 
-  const homeLink = `<a href="https://www.forem.com/discover/" rel="noreferrer" title="Forem web site"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--ppabDsgB--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://www.forem.com/seedling.png" style="${
+  const homeLink = `<a href="https://www.forem.com/discover/" rel="noreferrer" title="Forem web site"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--eAO3JVgB--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://www.forem.com/logo.png" style="${
     currentOrigin === 'https://www.forem.com' ? 'border: 4px solid white' : ''
   }" alt="Forem logo" /></a>`;
   let navHTML = '';
@@ -166,7 +166,7 @@ function loadForemHTML(forems) {
   constructedSidecarIframe.srcdoc = foremHTML;
   const newStyles = document.createElement('STYLE');
   newStyles.innerHTML =
-    `#chat {padding-left:60px !important}
+    `#chat {padding-left:60px !important; width: calc(100% - 60px)}
      .crayons-snackbar {left: 70px !important}
      @media (max-width: 1380px){body {padding-left:60px !important}
      .crayons-header {left: 58px !important}}

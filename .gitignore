@@ -117,3 +117,6 @@ dist
 
 # We do not use npm for package management
 package-lock.json
+
+#Mac Stuff
+.DS_Store

@@ -10,7 +10,7 @@ import SafariServices.SFSafariApplication
 import SafariServices.SFSafariExtensionManager
 
 let appName = "Forem for Safari"
-let extensionBundleIdentifier = "com.forem.Forem-for-Safari.Extension"
+let extensionBundleIdentifier = "com.forem.forem-for-safari.Extension"
 
 class ViewController: NSViewController {
 

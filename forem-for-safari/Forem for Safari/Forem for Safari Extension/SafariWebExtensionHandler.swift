@@ -1,8 +1,8 @@
 //
 //  SafariWebExtensionHandler.swift
-//  Forem Extension
+//  Forem for Safari Extension
 //
-//  Created by Joshua Puetz on 1/14/21.
+//  Created by Joshua Puetz on 1/15/21.
 //
 
 import SafariServices

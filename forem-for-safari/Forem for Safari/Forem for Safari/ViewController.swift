@@ -1,16 +1,16 @@
 //
 //  ViewController.swift
-//  Forem
+//  Forem for Safari
 //
-//  Created by Joshua Puetz on 1/14/21.
+//  Created by Joshua Puetz on 1/15/21.
 //
 
 import Cocoa
 import SafariServices.SFSafariApplication
 import SafariServices.SFSafariExtensionManager
 
-let appName = "Forem"
-let extensionBundleIdentifier = "com.forem.Forem.Extension"
+let appName = "Forem for Safari"
+let extensionBundleIdentifier = "com.forem.Forem-for-Safari.Extension"
 
 class ViewController: NSViewController {
 

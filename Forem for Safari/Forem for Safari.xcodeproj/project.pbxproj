@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0330FA9725B1FAD7008F236B /* forem-browser-extension in Resources */ = {isa = PBXBuildFile; fileRef = 0330FA9625B1FAD7008F236B /* forem-browser-extension */; };
-		0330FA9E25B1FB2D008F236B /* Icon-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 0330FA9A25B1FB2D008F236B /* Icon-32.png */; };
-		0330FA9F25B1FB2D008F236B /* Icon-16.png in Resources */ = {isa = PBXBuildFile; fileRef = 0330FA9B25B1FB2D008F236B /* Icon-16.png */; };
-		0330FAA025B1FB2D008F236B /* Icon-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 0330FA9C25B1FB2D008F236B /* Icon-128.png */; };
-		0330FAA125B1FB2D008F236B /* Icon-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 0330FA9D25B1FB2D008F236B /* Icon-48.png */; };
 		0394889E25B1EC3A005ABA7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0394889D25B1EC3A005ABA7A /* AppDelegate.swift */; };
 		039488A125B1EC3A005ABA7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0394889F25B1EC3A005ABA7A /* Main.storyboard */; };
 		039488A325B1EC3A005ABA7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039488A225B1EC3A005ABA7A /* ViewController.swift */; };
@@ -19,12 +14,16 @@
 		039488AC25B1EC3B005ABA7A /* Forem for Safari Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 039488AB25B1EC3B005ABA7A /* Forem for Safari Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		039488B125B1EC3B005ABA7A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 039488B025B1EC3B005ABA7A /* Cocoa.framework */; };
 		039488B425B1EC3B005ABA7A /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039488B325B1EC3B005ABA7A /* SafariWebExtensionHandler.swift */; };
-		039488C925B1EC3B005ABA7A /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = 039488C125B1EC3B005ABA7A /* LICENSE.md */; };
-		039488CA25B1EC3B005ABA7A /* content in Resources */ = {isa = PBXBuildFile; fileRef = 039488C225B1EC3B005ABA7A /* content */; };
-		039488CB25B1EC3B005ABA7A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 039488C325B1EC3B005ABA7A /* README.md */; };
-		039488CC25B1EC3B005ABA7A /* yarn.lock in Resources */ = {isa = PBXBuildFile; fileRef = 039488C425B1EC3B005ABA7A /* yarn.lock */; };
-		039488CD25B1EC3B005ABA7A /* package.json in Resources */ = {isa = PBXBuildFile; fileRef = 039488C525B1EC3B005ABA7A /* package.json */; };
-		039488CF25B1EC3B005ABA7A /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 039488C725B1EC3B005ABA7A /* manifest.json */; };
+		03CA431A25B23E1D00670D20 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 03CA431025B23E1C00670D20 /* README.md */; };
+		03CA431B25B23E1D00670D20 /* yarn.lock in Resources */ = {isa = PBXBuildFile; fileRef = 03CA431125B23E1C00670D20 /* yarn.lock */; };
+		03CA431C25B23E1D00670D20 /* Icon-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 03CA431225B23E1C00670D20 /* Icon-32.png */; };
+		03CA431D25B23E1D00670D20 /* content in Resources */ = {isa = PBXBuildFile; fileRef = 03CA431325B23E1C00670D20 /* content */; };
+		03CA431E25B23E1D00670D20 /* Icon-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 03CA431425B23E1C00670D20 /* Icon-128.png */; };
+		03CA431F25B23E1D00670D20 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = 03CA431525B23E1C00670D20 /* LICENSE.md */; };
+		03CA432025B23E1D00670D20 /* package.json in Resources */ = {isa = PBXBuildFile; fileRef = 03CA431625B23E1C00670D20 /* package.json */; };
+		03CA432125B23E1D00670D20 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 03CA431725B23E1D00670D20 /* manifest.json */; };
+		03CA432225B23E1D00670D20 /* Icon-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 03CA431825B23E1D00670D20 /* Icon-48.png */; };
+		03CA432325B23E1D00670D20 /* Icon-16.png in Resources */ = {isa = PBXBuildFile; fileRef = 03CA431925B23E1D00670D20 /* Icon-16.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,11 +51,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0330FA9625B1FAD7008F236B /* forem-browser-extension */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "forem-browser-extension"; path = ../../..; sourceTree = "<group>"; };
-		0330FA9A25B1FB2D008F236B /* Icon-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-32.png"; path = "../../../Icon-32.png"; sourceTree = "<group>"; };
-		0330FA9B25B1FB2D008F236B /* Icon-16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-16.png"; path = "../../../Icon-16.png"; sourceTree = "<group>"; };
-		0330FA9C25B1FB2D008F236B /* Icon-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-128.png"; path = "../../../Icon-128.png"; sourceTree = "<group>"; };
-		0330FA9D25B1FB2D008F236B /* Icon-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-48.png"; path = "../../../Icon-48.png"; sourceTree = "<group>"; };
 		0394889925B1EC3A005ABA7A /* Forem for Safari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Forem for Safari.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0394889C25B1EC3A005ABA7A /* Forem_for_Safari.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Forem_for_Safari.entitlements; sourceTree = "<group>"; };
 		0394889D25B1EC3A005ABA7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,12 +63,16 @@
 		039488B325B1EC3B005ABA7A /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
 		039488B525B1EC3B005ABA7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		039488B625B1EC3B005ABA7A /* Forem_for_Safari_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Forem_for_Safari_Extension.entitlements; sourceTree = "<group>"; };
-		039488C125B1EC3B005ABA7A /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = LICENSE.md; path = ../../../LICENSE.md; sourceTree = "<group>"; };
-		039488C225B1EC3B005ABA7A /* content */ = {isa = PBXFileReference; lastKnownFileType = folder; name = content; path = ../../../content; sourceTree = "<group>"; };
-		039488C325B1EC3B005ABA7A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
-		039488C425B1EC3B005ABA7A /* yarn.lock */ = {isa = PBXFileReference; lastKnownFileType = text; name = yarn.lock; path = ../../../yarn.lock; sourceTree = "<group>"; };
-		039488C525B1EC3B005ABA7A /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = package.json; path = ../../../package.json; sourceTree = "<group>"; };
-		039488C725B1EC3B005ABA7A /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../../manifest.json; sourceTree = "<group>"; };
+		03CA431025B23E1C00670D20 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
+		03CA431125B23E1C00670D20 /* yarn.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = yarn.lock; path = ../../yarn.lock; sourceTree = "<group>"; };
+		03CA431225B23E1C00670D20 /* Icon-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-32.png"; path = "../../Icon-32.png"; sourceTree = "<group>"; };
+		03CA431325B23E1C00670D20 /* content */ = {isa = PBXFileReference; lastKnownFileType = folder; name = content; path = ../../content; sourceTree = "<group>"; };
+		03CA431425B23E1C00670D20 /* Icon-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-128.png"; path = "../../Icon-128.png"; sourceTree = "<group>"; };
+		03CA431525B23E1C00670D20 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = LICENSE.md; path = ../../LICENSE.md; sourceTree = "<group>"; };
+		03CA431625B23E1C00670D20 /* package.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = package.json; path = ../../package.json; sourceTree = "<group>"; };
+		03CA431725B23E1D00670D20 /* manifest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = manifest.json; path = ../../manifest.json; sourceTree = "<group>"; };
+		03CA431825B23E1D00670D20 /* Icon-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-48.png"; path = "../../Icon-48.png"; sourceTree = "<group>"; };
+		03CA431925B23E1D00670D20 /* Icon-16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-16.png"; path = "../../Icon-16.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,17 +148,16 @@
 		039488C025B1EC3B005ABA7A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0330FA9B25B1FB2D008F236B /* Icon-16.png */,
-				0330FA9A25B1FB2D008F236B /* Icon-32.png */,
-				0330FA9D25B1FB2D008F236B /* Icon-48.png */,
-				0330FA9C25B1FB2D008F236B /* Icon-128.png */,
-				0330FA9625B1FAD7008F236B /* forem-browser-extension */,
-				039488C125B1EC3B005ABA7A /* LICENSE.md */,
-				039488C225B1EC3B005ABA7A /* content */,
-				039488C325B1EC3B005ABA7A /* README.md */,
-				039488C425B1EC3B005ABA7A /* yarn.lock */,
-				039488C525B1EC3B005ABA7A /* package.json */,
-				039488C725B1EC3B005ABA7A /* manifest.json */,
+				03CA431325B23E1C00670D20 /* content */,
+				03CA431925B23E1D00670D20 /* Icon-16.png */,
+				03CA431225B23E1C00670D20 /* Icon-32.png */,
+				03CA431825B23E1D00670D20 /* Icon-48.png */,
+				03CA431425B23E1C00670D20 /* Icon-128.png */,
+				03CA431525B23E1C00670D20 /* LICENSE.md */,
+				03CA431725B23E1D00670D20 /* manifest.json */,
+				03CA431625B23E1C00670D20 /* package.json */,
+				03CA431025B23E1C00670D20 /* README.md */,
+				03CA431125B23E1C00670D20 /* yarn.lock */,
 			);
 			name = Resources;
 			path = "Forem for Safari Extension";
@@ -255,17 +252,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				039488CB25B1EC3B005ABA7A /* README.md in Resources */,
-				0330FA9E25B1FB2D008F236B /* Icon-32.png in Resources */,
-				0330FA9725B1FAD7008F236B /* forem-browser-extension in Resources */,
-				039488CF25B1EC3B005ABA7A /* manifest.json in Resources */,
-				0330FAA125B1FB2D008F236B /* Icon-48.png in Resources */,
-				039488CA25B1EC3B005ABA7A /* content in Resources */,
-				039488CC25B1EC3B005ABA7A /* yarn.lock in Resources */,
-				039488C925B1EC3B005ABA7A /* LICENSE.md in Resources */,
-				039488CD25B1EC3B005ABA7A /* package.json in Resources */,
-				0330FAA025B1FB2D008F236B /* Icon-128.png in Resources */,
-				0330FA9F25B1FB2D008F236B /* Icon-16.png in Resources */,
+				03CA431B25B23E1D00670D20 /* yarn.lock in Resources */,
+				03CA431A25B23E1D00670D20 /* README.md in Resources */,
+				03CA432225B23E1D00670D20 /* Icon-48.png in Resources */,
+				03CA431D25B23E1D00670D20 /* content in Resources */,
+				03CA431E25B23E1D00670D20 /* Icon-128.png in Resources */,
+				03CA432125B23E1D00670D20 /* manifest.json in Resources */,
+				03CA431F25B23E1D00670D20 /* LICENSE.md in Resources */,
+				03CA432025B23E1D00670D20 /* package.json in Resources */,
+				03CA431C25B23E1D00670D20 /* Icon-32.png in Resources */,
+				03CA432325B23E1D00670D20 /* Icon-16.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

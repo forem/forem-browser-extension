@@ -10,6 +10,10 @@ new beta version available for download.
 
 Installation is just a few clicks. Follow the guide to get started.
 
+## [👉 Building and installing the Safari Web Extension](https://developer.apple.com/documentation/safariservices/safari_app_extensions/building_a_safari_app_extension#2957926)
+
+Follow the linked guide sections to build and unsigned version of the Safari Web Extension and install it in Safari.
+
 ## About this extension
 
 This is a fairly functional work-in-progress. Let's try to keep it clean and
@@ -17,6 +21,7 @@ functionally minimal as we evolve it.
 
 - Currently the code is written for Chrome, but this should be able to share 99%
   of the code with Firefox as long as we take care to do that early on.
+- The Safari version uses Safari Web Extensions: a native MacOS app wraps the plugin Javascript code
 - Forem logo is a placeholder.
 - Link to forem.com should link to a functional page, probably with discovery of
   new forems etc.

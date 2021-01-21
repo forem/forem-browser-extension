@@ -10,6 +10,13 @@ new beta version available for download.
 
 Installation is just a few clicks. Follow the guide to get started.
 
+## [👉 Building and installing the Safari Web Extension](https://developer.apple.com/documentation/safariservices/safari_app_extensions/building_a_safari_app_extension#2957926)
+
+Building requirements: MacOS SDK > 11.0.
+Running requirements: Safari web extensions are available in macOS 11 and later, and in macOS 10.14.6 or 10.15.6 with Safari 14 installed.
+
+Follow the linked guide sections to build and unsigned version of the Safari Web Extension and install it in Safari.
+
 ## About this extension
 
 This is a fairly functional work-in-progress. Let's try to keep it clean and
@@ -17,6 +24,7 @@ functionally minimal as we evolve it.
 
 - Currently the code is written for Chrome, but this should be able to share 99%
   of the code with Firefox as long as we take care to do that early on.
+- The Safari version uses Safari Web Extensions: a native MacOS app wraps the plugin Javascript code
 - Forem logo is a placeholder.
 - Link to forem.com should link to a functional page, probably with discovery of
   new forems etc.

@@ -12,6 +12,9 @@ Installation is just a few clicks. Follow the guide to get started.
 
 ## [👉 Building and installing the Safari Web Extension](https://developer.apple.com/documentation/safariservices/safari_app_extensions/building_a_safari_app_extension#2957926)
 
+Building requirements: MacOS SDK > 11.0.
+Running requirements: Safari web extensions are available in macOS 11 and later, and in macOS 10.14.6 or 10.15.6 with Safari 14 installed.
+
 Follow the linked guide sections to build and unsigned version of the Safari Web Extension and install it in Safari.
 
 ## About this extension

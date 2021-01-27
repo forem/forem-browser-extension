@@ -44,6 +44,8 @@ function initializeForemLogic() {
           'https://www.forem.com/valid_forems.json',
         );
         const json = await response.json();
+        filterForemJson(json);
+          
         chrome.storage.sync.set({ allforems: json.forems }); // Create empty array if not initialized.
         const versionSubstring = json.meta.latestExtensionVersion.substring(0, 3);
         if (versionSubstring != '0.2') {
@@ -285,4 +287,12 @@ function arrayContainsUrl(url, myArray){
         return myArray[i];
     }
   }
+}
+
+function filterForemJson(json) {
+  // We don't need this information for the sidebar, so let's not store it.
+  json.forems.forEach(function(forem, i) {
+    delete forem.description;
+    delete forem.socialCardImage;
+  })
 }

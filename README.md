@@ -1,8 +1,8 @@
 # Forem Browser Extension 🌱
 
-Do visit multiple forems  and wish there was an easier way to switch between them? Wish no more: the Forem browser plugin places a sidebar along the left side of your browser window to which you can add shortcuts to your favorite or more frequently visited forems!
+Do visit multiple Forems and wish there was an easier way to switch between them? Wish no more: the Forem browser plugin places a sidebar along the left side of your browser window to which you can add shortcuts to your favorite or more frequently visited Forems!
 
-To use: install the plugin for your browser of choice from the plugin stores below, and visit any forem instance to get started. Click the '+' icon to add a shortcut to the forem you're currently viewing to the sidebar. Shortcuts can be dragged to rearrange them, or clicking the '-' button will remove a forem from the sidebar.
+To use: install the plugin for your browser of choice from the plugin stores below, and visit any Forem instance to get started. Click the '+' icon to add a shortcut to the Forem you're currently viewing to the sidebar. Shortcuts can be dragged to rearrange them, or clicking the '-' button will remove a Forem from the sidebar.
 
 # Installation
 
@@ -36,12 +36,12 @@ functionally minimal as we evolve it.
 - The Safari version uses Safari Web Extensions: a native MacOS app wraps the plugin Javascript code
 - Forem logo is a placeholder.
 - Link to forem.com should link to a functional page, probably with discovery of
-  new forems etc.
+  new Forems etc.
 - We should add service workers to that functional forem.com page to remove the
   "flicker" when navigating there.
-- The content is placed in an iframe to preserve privacy so other forems
-  couldn't read other parts of the HTML and figure out where else you've been. Forems should not be able to see what other forems you
+- The content is placed in an iframe to preserve privacy so other Forems
+  couldn't read other parts of the HTML and figure out where else you've been. Forems should not be able to see what other Forems you
   are subscribed to (unless for some future explicitely opted-in feature if that
   were to be relevant)
-- The application fetches compatible/good standing forems from
+- The application fetches compatible/good standing Forems from
   `forem.com/valid_forems.json`

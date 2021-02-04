@@ -1,6 +1,6 @@
 # Forem Browser Extension 🌱
 
-Do visit multiple Forems and wish there was an easier way to switch between them? Wish no more: the Forem browser plugin places a sidebar along the left side of your browser window to which you can add shortcuts to your favorite or more frequently visited Forems!
+Do you visit multiple Forems and wish there was an easier way to switch between them? Wish no more: the Forem browser plugin places a sidebar along the left side of your browser window to which you can add shortcuts to your favorite or more frequently visited Forems!
 
 To use: install the plugin for your browser of choice from the plugin stores below, and visit any Forem instance to get started. Click the '+' icon to add a shortcut to the Forem you're currently viewing to the sidebar. Shortcuts can be dragged to rearrange them, or clicking the '-' button will remove a Forem from the sidebar.
 

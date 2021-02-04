@@ -6,7 +6,7 @@ To use: install the plugin for your browser of choice from the plugin stores bel
 
 # Installation
 
-The easiest way is to install from the browser marketplae of your choice:
+The easiest way is to install from the browser marketplace of your choice:
 
 Chrome: [Chrome Web Store](https://chrome.google.com/webstore/detail/forem/dnncmjdcbcccmddpebibkolaflnakklo?hl=en-US)
 

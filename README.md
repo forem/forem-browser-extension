@@ -41,7 +41,7 @@ functionally minimal as we evolve it.
   "flicker" when navigating there.
 - The content is placed in an iframe to preserve privacy so other Forems
   couldn't read other parts of the HTML and figure out where else you've been. Forems should not be able to see what other Forems you
-  are subscribed to (unless for some future explicitely opted-in feature if that
+  are subscribed to (unless for some future explicitly opted-in feature if that
   were to be relevant)
 - The application fetches compatible/good standing Forems from
   `forem.com/valid_forems.json`

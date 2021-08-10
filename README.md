@@ -44,4 +44,4 @@ functionally minimal as we evolve it.
   are subscribed to (unless for some future explicitly opted-in feature if that
   were to be relevant)
 - The application fetches compatible/good standing Forems from
-  `forem.com/valid_forems.json`
+  `discover.forem.com/api/forems/listed`

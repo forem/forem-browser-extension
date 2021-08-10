@@ -31,7 +31,7 @@ function initializeForemLogic() {
       document.addEventListener('remove', handleRemove, false);
       document.addEventListener('reorder', handleReorder, false);
     }
-  
+
     // Check for new extension version
     if (
       !allForems ||
@@ -41,11 +41,11 @@ function initializeForemLogic() {
       const init = !allForems || allForems.length === 0;
       setTimeout(async () => {
         const response = await window.fetch(
-          'https://www.forem.com/valid_forems.json',
+          'https://discover.forem.com/api/forems/listed',
         );
         const json = await response.json();
         filterForemJson(json);
-          
+
         chrome.storage.sync.set({ allforems: json.forems }); // Create empty array if not initialized.
         const versionSubstring = json.meta.latestExtensionVersion.substring(0, 3);
         if (versionSubstring != '0.2') {
@@ -58,7 +58,7 @@ function initializeForemLogic() {
               'https://github.com/forem/forem-browser-extension';
           }
         }
-  
+
         if (init && validOrigins(json.forems).includes(currentOrigin)) {
           loadForemHTML([]);
           document.addEventListener('add', handleAdd, false);
@@ -67,7 +67,7 @@ function initializeForemLogic() {
         }
       }, 300);
     }
-  });  
+  });
 }
 
 // if (!validOrigins(allForems).includes(currentOrigin)) { // If not known as listed compatible forem

@@ -428,6 +428,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Forem for Safari Extension/Forem_for_Safari_Extension.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = R9SWHSQNV8;
 				INFOPLIST_FILE = "Forem for Safari Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -436,6 +437,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 0.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.forem.forem-for-safari.Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -449,6 +451,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Forem for Safari Extension/Forem_for_Safari_Extension.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = R9SWHSQNV8;
 				INFOPLIST_FILE = "Forem for Safari Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -457,6 +460,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 0.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.forem.forem-for-safari.Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -474,7 +478,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = R9SWHSQNV8;
 				INFOPLIST_FILE = "Forem for Safari/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -498,7 +502,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = R9SWHSQNV8;
 				INFOPLIST_FILE = "Forem for Safari/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

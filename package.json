@@ -1,6 +1,6 @@
 {
   "name": "forem-browser-extension",
-  "version": "1.0.0",
+  "version": "0.1.5",
   "description": "This is a fairly functional work-in-progress. Let's try to keep it clean and functionally minimal as we evolve it.",
   "main": "content.js",
   "scripts": {

@@ -1,6 +1,6 @@
 {
   "name": "Forem",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "For Empowering Community",
   "manifest_version": 2,
   "permissions": ["storage"],

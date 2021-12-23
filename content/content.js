@@ -23,7 +23,8 @@ function initializeForemLogic() {
     const allForems = initialForems.concat(customForems)
     if (
       (myForems && myOrigins(myForems).includes(currentOrigin)) ||
-      (allForems && validOrigins(allForems).includes(currentOrigin))
+      (allForems && validOrigins(allForems).includes(currentOrigin)) ||
+      currentOrigin === 'https://discover.forem.com'
     ) {
       loadForemHTML(result.subscribedForems);
       document.addEventListener('add', handleAdd, false);
@@ -92,8 +93,8 @@ function loadForemHTML(forems) {
   `;
 
   const foremLogoUrl = chrome.runtime.getURL("content/forem-logo-512.png");
-  const homeLink = `<a href="https://www.forem.com/discover/" rel="noreferrer" title="Forem web site"><img src="${foremLogoUrl}" style="${
-    currentOrigin === 'https://www.forem.com' ? 'border: 4px solid white' : ''
+  const homeLink = `<a href="https://discover.forem.com" rel="noreferrer" title="Forem web site"><img src="${foremLogoUrl}" style="${
+    currentOrigin === 'https://discover.forem.com' ? 'border: 4px solid white' : ''
   }" alt="Forem logo" /></a>`;
   let navHTML = '';
   const subscribedOrigins = [];
@@ -116,7 +117,7 @@ function loadForemHTML(forems) {
   let script = '';
 
   if (
-    !subscribedOrigins.includes(currentOrigin)
+    !subscribedOrigins.includes(currentOrigin) && currentOrigin !== 'https://discover.forem.com'
   ) {
     actionButton =
       '<button id="forem-action-button" aria-label="Add a Forem instance"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"><path fill="none" d="M0 0h24v24H0z"/><path d="M11 11V7h2v4h4v2h-4v4h-2v-4H7v-2h4zm1 11C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"/></svg></button>';

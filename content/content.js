@@ -92,7 +92,7 @@ function loadForemHTML(forems) {
   `;
 
   const foremLogoUrl = chrome.runtime.getURL("content/forem-logo-512.png");
-  const homeLink = `<a href="https://www.forem.com/discover/" rel="noreferrer" title="Forem web site"><img src="${foremLogoUrl}" style="${
+  const homeLink = `<a href="https://discover.forem.com/" rel="noreferrer" title="Forem web site"><img src="${foremLogoUrl}" style="${
     currentOrigin === 'https://www.forem.com' ? 'border: 4px solid white' : ''
   }" alt="Forem logo" /></a>`;
   let navHTML = '';
